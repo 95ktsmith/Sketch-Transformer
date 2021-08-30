@@ -79,8 +79,7 @@ def train_transformer(N, dm, h, hidden, max_len, batch_size, epochs):
             # mask None because i believe it's just the padd mask
             predictions = transformer(inp,
                                       training=True,
-                                      mask=None,
-                                      batch_size=batch_size)
+                                      mask=None)
             # i put in third arg but not yet totally sure
             loss = loss_function(tar_real, predictions, mask=train_mask)
         gradients = tape.gradient(loss, transformer.trainable_variables)
