@@ -29,6 +29,13 @@ def train_transformer(N, dm, h, hidden, max_len, batch_size, epochs):
     loss_object = tf.keras.losses.SparseCategoricalCrossentropy(
         from_logits=True, reduction='none')
 
+    # create masks function for training
+    def create_mask(mask_rate, length):
+        mask = tf.random.uniform(shape=(length,), minval=0, maxval=1)
+        mask = tf.map_fn(lambda x: 0 if x < mask_rate else 1, mask)
+        mask = tf.cast(mask, 'float64')
+        return mask[:, tf.newaxis]
+
     # create the actucal loss function
     def loss_function(real, pred, mask=None):
         """ custom loss function for our transformer
