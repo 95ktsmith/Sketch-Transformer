@@ -1,6 +1,6 @@
 # Sketch-Transformer
 
-By [Michael George](mag389.github.io) and [Kevin Smith](https://github.com/95ktsmith/)
+By [Michael George](https://mag389.github.io) and [Kevin Smith](https://github.com/95ktsmith/)
 
 ##  intro
 
